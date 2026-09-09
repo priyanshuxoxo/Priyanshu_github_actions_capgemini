@@ -1,0 +1,3 @@
+import { test, expect } from '@playwright/test';
+import { openFlights } from './helpers/phptravels-flight.helpers';
+test.describe('PHPTRAVELS flight smoke', () => { test('opens the Flights search panel', async ({ page }) => { const { panel: flightPanel } = await openFlights(page); await expect(flightPanel.getByRole('button', { name: /Search Flights/i })).toBeVisible(); await expect(flightPanel.getByRole('button', { name: /One Way/i })).toBeVisible(); await expect(flightPanel.getByRole('button', { name: /Round Trip/i })).toBeVisible(); await expect(flightPanel.getByRole('button', { name: /Multi-City/i })).toBeVisible(); }); });
